@@ -1,13 +1,15 @@
 #ifndef DISPATCHER_HH__
 #define DISPATCHER_HH__
 
-#include "Event.hh"
+#include "Events.hpp"
 
 #include <functional>
 #include <map>
 #include <vector>
 #include <algorithm>
 
+namespace Pmu
+{
 // A forward declaration is sufficient here as the dispatcher does not store
 // connections themselves.
 // class Connection;
@@ -54,4 +56,5 @@ public:
   };
 private:
 };
+}
 #endif

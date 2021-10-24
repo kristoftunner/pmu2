@@ -1,0 +1,6 @@
+[submodule "ext/gtest"]
+	path = ext/gtest
+	url = https://github.com/google/googletest.git
+[submodule "ext/spdlog"]
+	path = ext/spdlog
+	url = https://github.com/gabime/spdlog.git

@@ -1,9 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <memory>
 
 #include "Base.hpp"
+#include "Dispatcher.hpp"
+#include "PmuEvents.hpp"
+#include "Log.hpp"
 
-namespace Pmu{
+namespace Pmu
+{
 struct pmuHeader{
     uint8_t ctrl;
     uint8_t reserverd0;
@@ -27,12 +32,17 @@ struct chData{
 
 class PmuDataGenerator{
 public:
+    PmuDataGenerator();
+    ~PmuDataGenerator(){;}
     void Tick();
-
+    void GenerateData();
+    void GetDispatcher(SPtr<Dispatcher<PmuEvents>> dispatcher) {_dispatcher = dispatcher;}
 private:
     void UpdateData();
 
-    Sptr<std::vector<pmuHeader>> adHeader;
-    Sptr<std::vector<chData>> adData;
+    SPtr<struct pmuHeader> adHeader;
+    SPtr<std::vector<chData>> adData;
+    DataReadyEvent _event;
+    SPtr<Dispatcher<PmuEvents>> _dispatcher;
 };
 }// namespace pmu

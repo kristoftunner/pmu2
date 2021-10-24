@@ -1,6 +1,9 @@
 #ifndef EVENT_HH__
 #define EVENT_HH__
 #include <string>
+
+namespace Pmu
+{
 /**
   @class Event
   @brief Base class for all events
@@ -26,5 +29,5 @@ public:
   virtual bool isHandled(){ return _handled;};
 private:
 };
-
+}
 #endif
